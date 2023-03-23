@@ -1,0 +1,43 @@
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 150px;
+  width: 250px;
+  border-color: aqua;
+  border-style: solid;
+  border-radius: 10px;
+  margin: -75px 0 0 -125px;
+  color: aliceblue;
+}
+.windowWrapper {
+  height: 50px;
+  width: 200px;
+  margin: 20px auto;
+}
+.counter {
+  height: 50px;
+  color: black;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 5px;
+  background-color: aqua;
+}
+.buttons {
+  border-color: aqua;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 0 auto;
+  color: black;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+button {
+  background-color: aqua;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+}
