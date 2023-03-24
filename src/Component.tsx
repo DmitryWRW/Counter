@@ -1,52 +1,54 @@
-import { useEffect, useState } from 'react';
-import './Component.css';
+import { useState } from "react";
+import "./Component.css";
+
+type ButtonItem = {
+  type: string;
+  func: () => void;
+  text: string;
+};
+
+type ButtonsDisabledResultType = {
+  [key: string]: boolean;
+};
 
 export const Component = () => {
-  useEffect(() => {
-    if (counter === 5) {
-      setDisabled(true);
-    }
-  });
   const [counter, setCounter] = useState<number>(0);
-  const [disabled, setDisabled] = useState<boolean>(false);
-  const [resetDisabled, setResetDisabled] = useState<boolean>(true);
-  let handleClick = () => {
-    setResetDisabled(false);
-    if (counter < 5) {
-      setCounter(counter + 1);
-    }
+  const [maxValue] = useState<number>(5);
+
+  const setButtonsDisabled = (type: string) => {
+    const result: ButtonsDisabledResultType = {
+      INC_BUTTON: counter === maxValue,
+      RESET_BUTTON: counter === 0,
+    };
+    return result[type];
   };
+
+  const arrButtons = [
+    { text: "inc", type: "INC_BUTTON", func: () => setCounter(counter + 1) },
+    { text: "reset", type: "RESET_BUTTON", func: () => setCounter(0) },
+  ];
+
   return (
-    <div className="component">
+    <div className="extraWrapper">
       <div className="wrapper">
         <div className="windowWrapper">
-          <div
-            className="counter"
-            style={{ color: counter === 5 ? 'red' : '' }}
-          >
+          <p style={{ color: setButtonsDisabled("INC_BUTTON") ? "red" : "" }}>
             {counter}
-          </div>
+          </p>
         </div>
         <div className="buttons">
-          <button
-            disabled={disabled}
-            onClick={() => {
-              setCounter(counter + 1);
-              handleClick();
-            }}
-          >
-            inc
-          </button>
-          <button
-            disabled={resetDisabled}
-            onClick={() => {
-              setCounter(0);
-              setResetDisabled(true);
-              setDisabled(false);
-            }}
-          >
-            reset
-          </button>
+          {arrButtons.map((el: ButtonItem, index: number) => {
+            const { text, type, func } = el;
+            return (
+              <button
+                key={index}
+                onClick={func}
+                disabled={setButtonsDisabled(type)}
+              >
+                {text}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

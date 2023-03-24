@@ -1,43 +1,45 @@
-.wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 150px;
-  width: 250px;
-  border-color: aqua;
-  border-style: solid;
-  border-radius: 10px;
-  margin: -75px 0 0 -125px;
-  color: aliceblue;
-}
-.windowWrapper {
-  height: 50px;
-  width: 200px;
-  margin: 20px auto;
-}
-.counter {
-  height: 50px;
-  color: black;
-  text-align: center;
-  padding-top: 10px;
-  border-radius: 5px;
-  background-color: aqua;
-}
-.buttons {
-  border-color: aqua;
-  border-style: solid;
-  border-radius: 10px;
-  margin: 0 auto;
-  color: black;
-  width: 200px;
-  height: 40px;
+.extraWrapper {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  background-color: black;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid aqua;
+  border-radius: 10px;
+  padding: 10px 25px;
+}
+
+.windowWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: aqua;
+  padding: 15px 0;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid aqua;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-top: 10px;
 }
 button {
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
   background-color: aqua;
-  border-radius: 5px;
-  width: 50px;
-  height: 30px;
+  padding: 5px 10px;
 }
